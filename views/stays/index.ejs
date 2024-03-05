@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') %>
+<div class="container">
+<div id="map" style="width: 100%; height: 500px;"></div>
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <h1>All Stays</h1>
+        <a class="btn btn-success" href="/stays/new">New Stay</a>
+    </div>
+</div>
+
+    <% for(let stay of stays){ %>
+    <div class="card mb-3 text-center" style="max-width: 540px;">
+  <div class="row g-4">
+    <div class="col-md-4">
+        <% if(stay.images.length){ %>
+      <img src="<%= stay.images[0].url %>" class="img-fluid rounded-start" alt="">
+      <% }else{ %>
+      <img crossorigin="anonymous" src='https://res.cloudinary.com/diztlyb0g/image/upload/v1702572980/YelpCamp/fk5tpcjpewmf8zd5bjdv.jpg' class="img-fluid rounded-start" alt="">
+      <% } %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%=stay.title %></h5>
+        <p class="card-text"><%= stay.description %></p>
+        <p class="card-text"><small class="text-body-secondary"><%= stay.location %></small></p>
+        <a href="/stays/<%=stay._id %>" class="btn btn-primary">View more info</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+        <% } %>
+
+</div>
+<script>
+    const mapToken='<%=process.env.mapbox_token%>'
+    const stays={features:<%-JSON.stringify(stays)%>}
+</script>
+<script src="/javascripts/clusterMap.js"></script>

@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center md-5">
+    <div class="row ">
+        <div class="col ">
+            <div class="card shadow">
+                <img src="https://res.cloudinary.com/diztlyb0g/image/upload/v1702606989/YelpCamp/kdc6bvsfmhuym7wdukyg.jpg" alt="" class="card-img-top" style="width:100%; height: 15vw; object-fit: cover;">
+                <div class="card-body">
+                    <h1 class="card-title">Sign In</h1>
+
+                    <form action="/login" method="POST" class="validated-form" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" type="text" id="username" name="username" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" type="password" id="password" name="password" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <button class="btn btn-success">Sign In</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
